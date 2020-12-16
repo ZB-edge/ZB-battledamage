@@ -24,4 +24,12 @@ public class PhotosServiceImpl implements PhotosService {
         Query query = Query.query(Criteria.where("name").is(name));
         mongoTemplate.remove(query,Photos.class,"photo");
     }
+
+    @Override
+    public void save(String name, String info, String institution) {
+        Photos photos = new Photos();
+        photos.setInfo(info);
+        photos.setInstitution(institution);
+        photos.setName(name);
+    }
 }

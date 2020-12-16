@@ -9,4 +9,5 @@ import java.util.List;
 public interface PhotosService {
     List<Photos> findAll();
     void deleteByName(String name);
+    void save(String name,String info,String institution);
 }
