@@ -78,7 +78,7 @@ public class BattleDamageController {
         js.put("info",photo.getInfo());
         js.put("institution",institution);
         String ip = cloudService.findIp("cloud");
-        String url = "http://" + ip + ":8100/export";
+        String url = "http://" + ip + ":8100/api/damage/export";
         String result = restTemplate.postForObject(url,js,String.class);
         assert result != null;
         if(result.equals("成功")){
