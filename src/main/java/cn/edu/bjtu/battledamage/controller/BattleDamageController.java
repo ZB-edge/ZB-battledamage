@@ -72,7 +72,7 @@ public class BattleDamageController {
     @PostMapping("/export/{institution}")
     public String export(@RequestBody Photo photo,@PathVariable String institution ){
         JSONObject js = new JSONObject();
-        String file = "E:/opt/photo/" + photo.getName() + ".jdp";
+        String file = "E:/opt/photo/" + photo.getName() + ".jpg";
         String BASE64 = photoProcess.GetBase64(file);
         js.put("photo",BASE64);
         js.put("info",photo.getInfo());
