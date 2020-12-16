@@ -77,6 +77,7 @@ public class BattleDamageController {
         js.put("photo",BASE64);
         js.put("info",photo.getInfo());
         js.put("institution",institution);
+        js.put("name",photo.getName());
         String ip = cloudService.findIp("cloud");
         String url = "http://" + ip + ":8100/api/damage/export";
         String result = restTemplate.postForObject(url,js,String.class);
