@@ -1,10 +1,14 @@
 package cn.edu.bjtu.battledamage.controller;
 
 import cn.edu.bjtu.battledamage.entity.Photo;
+import cn.edu.bjtu.battledamage.service.CloudService;
+import cn.edu.bjtu.battledamage.service.PhotoProcess;
 import cn.edu.bjtu.battledamage.service.PhotoService;
 import cn.edu.bjtu.battledamage.util.StringUtils;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -17,6 +21,12 @@ public class BattleDamageController {
 
     @Autowired
     PhotoService photoService;
+    @Autowired
+    PhotoProcess photoProcess;
+    @Autowired
+    RestTemplate restTemplate;
+    @Autowired
+    CloudService cloudService;
 
     @CrossOrigin
     @PostMapping("/upload")
@@ -59,9 +69,24 @@ public class BattleDamageController {
     }
 
     @CrossOrigin
-    @PostMapping("/export")
-    public String export(){
-        return "导出到云端成功";
+    @PostMapping("/export/{institution}")
+    public String export(@RequestBody Photo photo,@PathVariable String institution ){
+        JSONObject js = new JSONObject();
+        String file = "E:/opt/photo/" + photo.getName() + ".jdp";
+        String BASE64 = photoProcess.GetBase64(file);
+        js.put("photo",BASE64);
+        js.put("info",photo.getInfo());
+        js.put("institution",institution);
+        String ip = cloudService.findIp("cloud");
+        String url = "http://" + ip + ":8100/export";
+        String result = restTemplate.postForObject(url,js,String.class);
+        assert result != null;
+        if(result.equals("成功")){
+            photo.setStatus("1");
+            return photo.getStatus();
+        }else {
+            return photo.getStatus();
+        }
     }
 
     @CrossOrigin
