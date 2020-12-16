@@ -5,7 +5,7 @@ spring:
       port: 27017
       database: ZB
   resources:
-    static-locations: classpath:/static
+    static-locations: file:E:/opt/photo/
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
@@ -13,6 +13,8 @@ spring:
     broker-url: tcp://localhost:61616
     user: admin
     password: admin
+  mvc:
+    static-path-pattern: /image/**
 server:
   edgex: localhost
   port: 8100
