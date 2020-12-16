@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37156abd-6b78-4add-be06-2f84bd539633" name="Default Changelist" comment="" />
+    <list default="true" id="37156abd-6b78-4add-be06-2f84bd539633" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/entity/Photos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/service/Impl/ActiveMqConsumerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/service/Impl/ActiveMqProducerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/service/Impl/MqFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/service/Impl/PhotosServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/service/MqConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/service/MqFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/service/MqProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/service/PhotosService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/util/ApplicationContextProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/bjtu/battledamage/ZBBattleDamageApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/bjtu/battledamage/controller/BattleDamageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j2.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +32,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -39,13 +62,19 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.edu.bjtu.battledamage.util" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\IdeaProjects\ZB-battledamage\src\main\java\cn\edu\bjtu\battledamage\service\Impl" />
+      <recent name="E:\IdeaProjects\ZB-battledamage\src\main\java\cn\edu\bjtu\battledamage\service" />
       <recent name="E:\IdeaProjects\ZB-battledamage\src\main\resources" />
     </key>
   </component>
@@ -66,6 +95,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ZBBattleDamageApplication" />
+        <item itemvalue="Spring Boot.ZBBattleDamageApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -80,29 +110,38 @@
       <option name="presentableId" value="Default" />
       <updated>1607996964481</updated>
       <workItem from="1607996966996" duration="1665000" />
+      <workItem from="1608102105745" duration="2453000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit upload" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="237" key="GridCell.Tab.0.bottom" timestamp="1607998632862">
+    <state x="958" y="108" key="#com.intellij.ide.util.MemberChooser" timestamp="1608103217863">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="237" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607998632862" />
-    <state width="1493" height="237" key="GridCell.Tab.0.center" timestamp="1607998632862">
+    <state x="958" y="108" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1608103217863" />
+    <state width="1493" height="237" key="GridCell.Tab.0.bottom" timestamp="1608102039029">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="237" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607998632862" />
-    <state width="1493" height="237" key="GridCell.Tab.0.left" timestamp="1607998632862">
+    <state width="1493" height="237" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608102039029" />
+    <state width="1493" height="237" key="GridCell.Tab.0.center" timestamp="1608102039029">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="237" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607998632862" />
-    <state width="1493" height="237" key="GridCell.Tab.0.right" timestamp="1607998632862">
+    <state width="1493" height="237" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1608102039029" />
+    <state width="1493" height="237" key="GridCell.Tab.0.left" timestamp="1608102039029">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="237" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607998632862" />
+    <state width="1493" height="237" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1608102039029" />
+    <state width="1493" height="237" key="GridCell.Tab.0.right" timestamp="1608102039029">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="237" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1608102039029" />
     <state width="1493" height="237" key="GridCell.Tab.1.bottom" timestamp="1607998632862">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
