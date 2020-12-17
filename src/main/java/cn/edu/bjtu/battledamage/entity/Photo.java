@@ -1,11 +1,13 @@
 package cn.edu.bjtu.battledamage.entity;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
 @Document(collection = "photo")
 public class Photo {
+    @Id
     String name;
     Date date;
     String info;
