@@ -16,8 +16,8 @@ public class ZBBattleDamageApplication {
     @Bean
     public RestTemplate restTemplate() {
         SimpleClientHttpRequestFactory simpleClientHttpRequestFactory = new SimpleClientHttpRequestFactory();
-        simpleClientHttpRequestFactory.setConnectTimeout(10000);
-        simpleClientHttpRequestFactory.setReadTimeout(10000);
+        simpleClientHttpRequestFactory.setConnectTimeout(100000);
+        simpleClientHttpRequestFactory.setReadTimeout(100000);
         RestTemplate restTemplate = new RestTemplate(simpleClientHttpRequestFactory);
         return restTemplate;
     }

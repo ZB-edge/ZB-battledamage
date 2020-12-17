@@ -21,7 +21,7 @@ public class BattleDamageController {
     @CrossOrigin
     @PostMapping("/export")
     public String export(@RequestParam(value = "photo") String base64,@RequestParam(value = "info") String info,@RequestParam(value = "institution") String institution,@RequestParam(value = "name") String name) throws IOException {
-        String path = "E://opt/photo/" + name + ".jpg";
+        String path = "E:/opt/photo/" + name + ".jpg";
         savePhotoService.GeneratePhoto(base64,path);
         photosService.save(name,info,institution);
         if (base64!=null&&institution!=null&&name!=null){
@@ -35,6 +35,18 @@ public class BattleDamageController {
     @GetMapping("/show")
     public List<Photos> show(){
         return photosService.findAll();
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/delete")
+    public String delete(String name) throws IOException, InterruptedException {
+        photosService.deleteByName(name);
+//        String command = "";
+//        command = "rm -rf /opt/photo/" + name + ".jpg";
+//        String[] cmdArray = new String[]{"/bin/sh", "-c", command};
+//        Process process = Runtime.getRuntime().exec(cmdArray);
+//        process.waitFor();
+        return "删除成功！";
     }
 
     @CrossOrigin
