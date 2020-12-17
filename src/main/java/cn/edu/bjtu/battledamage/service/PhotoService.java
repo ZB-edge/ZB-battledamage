@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public interface PhotoService {
     void save(Photo photo);
-    List<Photo> findByName(String name);
+    Photo findByName(String name);
     void deleteByName(String name);
     List<Photo> findAll();
     void updateStatus(String name,String status);

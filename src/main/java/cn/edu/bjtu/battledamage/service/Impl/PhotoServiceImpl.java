@@ -23,16 +23,17 @@ public class PhotoServiceImpl implements PhotoService {
         Photo p = new Photo();
         p.setDate(new Date());
         p.setInfo(photo.getInfo());
-        p.setName(photo.getName());
+        String[] ph = photo.getName().split("[.]");
+        p.setName(ph[0]);
         p.setStatus(photo.getStatus());
         p.setPath(photo.getPath());
         mongoTemplate.save(p,"photo");
     }
 
     @Override
-    public List<Photo> findByName(String name) {
+    public Photo findByName(String name) {
         Query query = Query.query(Criteria.where("name").is(name));
-        return mongoTemplate.find(query, Photo.class,"photo");
+        return mongoTemplate.findOne(query, Photo.class,"photo");
     }
 
     @Override

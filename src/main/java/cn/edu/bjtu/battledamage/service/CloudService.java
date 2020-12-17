@@ -1,8 +1,8 @@
 package cn.edu.bjtu.battledamage.service;
 
-import cn.edu.bjtu.battledamage.entity.Cloud;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public interface CloudService {
     String findIp(String name);
 }

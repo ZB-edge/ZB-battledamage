@@ -4,7 +4,6 @@ import cn.edu.bjtu.battledamage.entity.Photo;
 import cn.edu.bjtu.battledamage.service.CloudService;
 import cn.edu.bjtu.battledamage.service.PhotoProcess;
 import cn.edu.bjtu.battledamage.service.PhotoService;
-import cn.edu.bjtu.battledamage.util.StringUtils;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 @RequestMapping("/api/damage")
 @RestController
@@ -36,7 +36,7 @@ public class BattleDamageController {
         if(!path.exists()){
             path.mkdir();
         }
-        File f = new File(path,StringUtils.getRandomString(4) + file.getOriginalFilename().substring(file.getOriginalFilename().length()-4));
+        File f = new File(path, Objects.requireNonNull(file.getOriginalFilename()));
 
         try {
             file.transferTo(f);
@@ -56,7 +56,7 @@ public class BattleDamageController {
     }
 
     @CrossOrigin
-    @PostMapping("/show")
+    @GetMapping("/show")
     public List<Photo> show(){
         return photoService.findAll();
     }
@@ -70,9 +70,11 @@ public class BattleDamageController {
 
     @CrossOrigin
     @PostMapping("/export/{institution}")
-    public String export(@RequestBody Photo photo,@PathVariable String institution ){
+    public String export(@PathVariable String institution,String name){
         JSONObject js = new JSONObject();
-        String file = "E:/opt/photo/" + photo.getName() + ".jpg";
+        Photo photo = photoService.findByName(name);
+        String file = "E://opt/photo/" + photo.getName() + ".jpg";
+        System.out.println(file);
         String BASE64 = photoProcess.GetBase64(file);
         js.put("photo",BASE64);
         js.put("info",photo.getInfo());
@@ -80,10 +82,11 @@ public class BattleDamageController {
         js.put("name",photo.getName());
         String ip = cloudService.findIp("cloud");
         String url = "http://" + ip + ":8100/api/damage/export";
+        System.out.println(js);
         String result = restTemplate.postForObject(url,js,String.class);
         assert result != null;
         if(result.equals("成功")){
-            photo.setStatus("1");
+            photoService.updateStatus(name,"1");
             return photo.getStatus();
         }else {
             return photo.getStatus();
