@@ -32,7 +32,7 @@ public class BattleDamageController {
     @CrossOrigin
     @PostMapping("/upload")
     public String photoUpload(@RequestParam("file") MultipartFile file){
-        String folder = "E:/opt/photo";
+        String folder = "/opt/photo";
         File path = new File(folder);
         if(!path.exists()){
             path.mkdir();
@@ -52,11 +52,12 @@ public class BattleDamageController {
     @CrossOrigin
     @PostMapping("/save")
     public String save(@RequestBody Photo photo){
-        Photo ph = photoService.findByName(photo.getName());
+        String[] p = photo.getName().split("[.]");
+        Photo ph = photoService.findByName(p[0]);
         if (ph != null){
             return "图像名称重复，请重新上传！";
         }else {
-            photoService.save(ph);
+            photoService.save(photo);
             return "上传成功！";
         }
     }
@@ -71,11 +72,11 @@ public class BattleDamageController {
     @DeleteMapping("/delete")
     public String delete(String name) throws IOException, InterruptedException {
         photoService.deleteByName(name);
-//        String command = "";
-//        command = "rm -rf /opt/photo/" + name + ".jpg";
-//        String[] cmdArray = new String[]{"/bin/sh", "-c", command};
-//        Process process = Runtime.getRuntime().exec(cmdArray);
-//        process.waitFor();
+        String command = "";
+        command = "rm -rf /opt/photo/" + name + ".jpg";
+        String[] cmdArray = new String[]{"/bin/sh", "-c", command};
+        Process process = Runtime.getRuntime().exec(cmdArray);
+        process.waitFor();
         return "删除成功！";
     }
 
@@ -84,8 +85,7 @@ public class BattleDamageController {
     public String export(@PathVariable String institution,String name){
         MultiValueMap<String,String> js = new LinkedMultiValueMap<>();
         Photo photo = photoService.findByName(name);
-        String file = "E://opt/photo/" + photo.getName() + ".jpg";
-        System.out.println(file);
+        String file = "/opt/photo/" + photo.getName() + ".jpg";
         String BASE64 = photoProcess.GetBase64(file);
         js.add("photo",BASE64);
         js.add("info",photo.getInfo());
