@@ -24,7 +24,7 @@ public class PhotosServiceImpl implements PhotosService {
     @Override
     public void deleteByName(String name) {
         Query query = Query.query(Criteria.where("name").is(name));
-        mongoTemplate.remove(query,Photos.class,"photo");
+        mongoTemplate.remove(query,Photos.class,"photos");
     }
 
     @Override
