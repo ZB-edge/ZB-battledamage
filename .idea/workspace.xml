@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="37156abd-6b78-4add-be06-2f84bd539633" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/controller/BattleDamageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/bjtu/battledamage/controller/BattleDamageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +105,10 @@
       <workItem from="1608274636707" duration="675000" />
       <workItem from="1608277096725" duration="1043000" />
       <workItem from="1608287457979" duration="500000" />
+      <workItem from="1608340412963" duration="948000" />
+      <workItem from="1608346972505" duration="1405000" />
+      <workItem from="1608358859891" duration="14000" />
+      <workItem from="1608380847774" duration="4000" />
     </task>
     <servers />
   </component>
