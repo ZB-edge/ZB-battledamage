@@ -17,5 +17,5 @@ spring:
     static-path-pattern: /image/**
 server:
   edgex: localhost
-  port: 8100
+  port: 8105
 mq: activemq
