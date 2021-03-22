@@ -3,6 +3,7 @@ package cn.edu.bjtu.battledamage.controller;
 import cn.edu.bjtu.battledamage.entity.Photos;
 import cn.edu.bjtu.battledamage.service.PhotosService;
 import cn.edu.bjtu.battledamage.service.SavePhotoService;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +36,72 @@ public class BattleDamageController {
     @GetMapping("/show")
     public List<Photos> show(){
         return photosService.findAll();
+    }
+
+    @CrossOrigin
+    @GetMapping("/final/{institution}")
+    public JSONObject data1(@PathVariable String institution){
+        JSONObject js = new JSONObject();
+        switch (institution) {
+            case "一旅":
+                js.put("08式输送车", 95);
+                js.put("08式指挥车", 100);
+                js.put("08式步战车", 70);
+                js.put("08式突击车", 77);
+                break;
+            case "二旅":
+                js.put("08式输送车", 92);
+                js.put("08式指挥车", 97);
+                js.put("08式步战车", 100);
+                js.put("08式突击车", 88);
+                break;
+            case "三旅":
+                js.put("08式输送车", 100);
+                js.put("08式指挥车", 85);
+                js.put("08式步战车", 100);
+                js.put("08式突击车", 89);
+                break;
+            default:
+                js.put("08式输送车", 96);
+                js.put("08式指挥车", 83);
+                js.put("08式步战车", 91);
+                js.put("08式突击车", 79);
+                break;
+        }
+        return js;
+    }
+
+    @CrossOrigin
+    @GetMapping("/last/{institution}")
+    public JSONObject data2(@PathVariable String institution){
+        JSONObject js = new JSONObject();
+        switch (institution) {
+            case "一旅":
+                js.put("08式输送车", 2);
+                js.put("08式指挥车", 1);
+                js.put("08式步战车", 1);
+                js.put("08式突击车", 1);
+                break;
+            case "二旅":
+                js.put("08式输送车", 1);
+                js.put("08式指挥车", 2);
+                js.put("08式步战车", 1);
+                js.put("08式突击车", 1);
+                break;
+            case "三旅":
+                js.put("08式输送车", 1);
+                js.put("08式指挥车", 1);
+                js.put("08式步战车", 2);
+                js.put("08式突击车", 1);
+                break;
+            default:
+                js.put("08式输送车", 1);
+                js.put("08式指挥车", 1);
+                js.put("08式步战车", 1);
+                js.put("08式突击车", 2);
+                break;
+        }
+        return js;
     }
 
     @CrossOrigin
