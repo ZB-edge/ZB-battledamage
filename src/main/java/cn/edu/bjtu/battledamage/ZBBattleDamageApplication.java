@@ -20,5 +20,6 @@ public class ZBBattleDamageApplication {
         simpleClientHttpRequestFactory.setReadTimeout(100000);
         RestTemplate restTemplate = new RestTemplate(simpleClientHttpRequestFactory);
         return restTemplate;
+
     }
 }
