@@ -1,7 +1,10 @@
 package cn.edu.bjtu.battledamage.controller;
 
+import cn.edu.bjtu.battledamage.entity.FileDescriptor;
+import cn.edu.bjtu.battledamage.entity.FileSavingMsg;
 import cn.edu.bjtu.battledamage.entity.Photo;
 import cn.edu.bjtu.battledamage.service.CloudService;
+import cn.edu.bjtu.battledamage.service.FileService;
 import cn.edu.bjtu.battledamage.service.PhotoProcess;
 import cn.edu.bjtu.battledamage.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +31,8 @@ public class BattleDamageController {
     RestTemplate restTemplate;
     @Autowired
     CloudService cloudService;
+    @Autowired
+    FileService fileService;
 
     @CrossOrigin
     @PostMapping("/upload")
@@ -101,6 +106,43 @@ public class BattleDamageController {
         }else {
             return "导出云失败";
         }
+    }
+
+    @CrossOrigin
+    @GetMapping("/service")
+    public List<FileDescriptor> inquireService(){
+        String path = fileService.getThisJarPath();
+        return fileService.getFileList(path,new String[]{"jar"});
+    }
+
+    @CrossOrigin
+    @PostMapping("/service")
+    public List<FileSavingMsg> postService(@RequestParam("file") MultipartFile[] multipartFiles){
+        String path = fileService.getThisJarPath();
+        return fileService.saveFiles(multipartFiles, path);
+    }
+
+    @CrossOrigin
+    @PutMapping("/service")
+    public void startService(@RequestParam String jarName){
+        fileService.execJar(jarName);
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/service")
+    public void killService(@RequestParam int port){
+        fileService.killProcessByPort(port);
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/delete1")
+    public String delete1(String name) throws IOException, InterruptedException {
+        String command = "";
+        command = "rm -rf /opt/zb-backend/" + name;
+        String[] cmdArray = new String[]{"/bin/sh", "-c", command};
+        Process process = Runtime.getRuntime().exec(cmdArray);
+        process.waitFor();
+        return "删除成功！";
     }
 
     @CrossOrigin
